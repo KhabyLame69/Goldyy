@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="./yes_style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div>
+            <h1 class="header_text">Hurray!</h1>
+        </div>
+        <div class="gif_container">
+            <img src="https://media0.giphy.com/media/T86i6yDyOYz7J6dPhf/giphy.gif" alt="Cute animated illustration">
+        </div>
+        <div class="container">
+            <h1>I am your boss now?? Isn 't it????</h1>
+            <div class="buttons">
+                <button class="btn" id="yesButton" onclick="nextPage()">Yes</button>
+                <button class="btn" id="noButton" onmouseover="moveButton()" onclick="moveButton()">No</button>
+
+                <script>
+                    function nextPage() {
+
+                        const message = document.querySelector('.hide');
+                        message.style.display = 'block';
+                        setTimeout(() => {
+                            window.location.href = "yes.html";
+                        }, 2500);
+                    }
+
+                    function moveButton() {
+                        var button = document.getElementById('noButton');
+                        var buttonWidth = button.offsetWidth;
+                        var buttonHeight = button.offsetHeight;
+                        var currentX = parseFloat(button.style.left) || 0;
+                        var currentY = parseFloat(button.style.top) || 0;
+                        var maxDistance = 200;
+
+                        var x = currentX + (Math.random() * 2 * maxDistance - maxDistance);
+                        var y = currentY + (Math.random() * 2 * maxDistance - maxDistance);
+
+                        x = Math.max(0, Math.min(window.innerWidth - buttonWidth, x));
+                        y = Math.max(0, Math.min(window.innerHeight - buttonHeight, y));
+
+                        button.style.left = `${x}px`;
+                        button.style.top = `${y}px`;
+                    }
+                </script>
+
+            </div>
+            <div class="hide" style="display: none;">I knew it</div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
